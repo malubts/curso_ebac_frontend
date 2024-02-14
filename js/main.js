@@ -1,13 +1,7 @@
-$(document).ready(function() {
-    $('#carousel-imagens').slick({
-        autoplay: true,
-    });
+$('#telefone').mask('(00) 00000-0000');
+$('#cpf').mask('000.000.000-00');
+$('#cep').mask('00000-000');
 
-    $('.menu-hamburguer').click(function() {
-        $('nav').slideToggle();
-    })
-
-    $('#telefone').mask('(00) 00000-0000')
 
     $('form').validate({
         rules: {
@@ -21,11 +15,14 @@ $(document).ready(function() {
             telefone: {
                 required: true
             },
-            mensagem: {
+            cpf: {
                 required: true,
             },
-            veiculoDeInteresse: {
-                required: false,
+            endereco: {
+                required: true,
+            },
+            cep: {
+                required: true,
             }
         },
         messages: {
@@ -42,15 +39,3 @@ $(document).ready(function() {
             }
         }
     })
-
-    $('.lista-veiculos button').click(function() {
-        const destino = $('#contato');
-        const nomeVeiculo = ($(this).parent().find('h3').text());
-
-        $('#veiculo-interesse').val(nomeVeiculo);
-
-        $('html').animate({
-            scrollTop: destino.offset().top
-        }, 1000)
-    })
-})
